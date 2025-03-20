@@ -4,7 +4,7 @@ Documentation for Installing Hadoop on Windows 10/11
 Prerequisites
 1].Java Installation:
 o Download Java JDK.
-o Install Java and configure the JAVA_HOME environment variable.
+o Install Java and configure the JAVA_HOME environment variable., variable value= C:\Program Files\Java\jdk-24\bin
 o Add JAVA_HOME\bin to the system PATH.
 o Then Go to System variable and in Path section click on edit.
 oAdd same Variable value. 
