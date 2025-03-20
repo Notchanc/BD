@@ -1,0 +1,43 @@
+Aim: Exploring Hadoop Distributed File System
+
+
+Listing Contents of a Directory:
+This command lists the contents of the specified HDFS directory.
+hdfs dfs -ls /path/to/directory
+
+Creating a Directory:
+Use this command to create a new directory in HDFS.
+hdfs dfs -mkdir /path/to/new_directory
+
+Copying Local Files to HDFS:
+Copies files from the local file system to HDFS.
+hdfs dfs -copyFromLocal /local/path /hdfs/path
+
+Copying Files from HDFS to the Local File System:
+Retrieves files from HDFS and copies them to the local file system.
+hdfs dfs -copyToLocal /hdfs/path /local/path
+
+Uploading a Local File to HDFS:
+Similar to the copyFromLocal command, this uploads a local file to HDFS.
+hdfs dfs -put /local/path/file.txt /hdfs/path
+
+Downloading a File from HDFS to Local File System:
+Retrieves a file from HDFS and copies it to the local file system.
+hdfs dfs -get /hdfs/path/file.txt /local/path
+
+Viewing the Contents of a File:
+Displays the content of a file stored in HDFS.
+hdfs dfs -cat /hdfs/path/file.txt
+
+Moving a File or Directory within HDFS:
+Moves a file or directory from one location to another within HDFS.
+hdfs dfs -mv /source/path /destination/path
+
+Removing a File or Directory:
+Deletes a file or an empty directory from HDFS.
+hdfs dfs -rm /hdfs/path/file.txt
+hdfs dfs -rmdir /hdfs/path/directory
+
+Checking Disk Usage:
+Displays the disk usage of a specified HDFS directory.
+hdfs dfs -du -h /hdfs/path
