@@ -1,0 +1,119 @@
+Aim: install , configure and run Hadoop and HDFS
+
+Documentation for Installing Hadoop on Windows 10/11
+Prerequisites
+1].Java Installation:
+o Download Java JDK.
+o Install Java and configure the JAVA_HOME environment variable.
+o Add JAVA_HOME\bin to the system PATH.
+o Then Go to System variable and in Path section click on edit.
+oAdd same Variable value. 
+
+2. Download Hadoop:
+o Visit the official Apache Hadoop download page.
+o Extract the downloaded file to a directory like C:\Hadoop.
+  (Download Winrar through this link and extract downloaded Hadoop 
+    file https://www.win-rar.com/download.html?&L=0 )
+o Save this extracted file in Local disk C by renaming it as “Hadoop”.
+
+
+
+Configuration:
+
+1].Set Environment Variables:
+o Add HADOOP_HOME as the Hadoop directory.
+
+o Save 2 file paths in Path variable as:
+1)C:\hadoop\bin
+2)C:\hadoop\sbin 
+o Update the PATH variable with %HADOOP_HOME%\bin.
+
+
+2].Edit Configuration Files:
+o Open the following files in the etc\hadoop directory:
+o Go to etc folder and the open hadoop file then go to hadoop-env and edit that file in notepad.
+o In set given below in the image add the jdk file path
+ 
+2.core-site.xml:
+xml
+Copy code
+<configuration>
+<property>
+<name>fs.defaultFS</name>
+<value>hdfs://localhost:9000</value>
+</property>
+</configuration>
+
+3.httpfs-site.xml:
+
+[Note:- Create folder named "data" in hadoop folder, then open that data folder and create two new files named 1.datanode & 2. namenode and then copy there file paths and add it to the given code.]
+
+<configuration>
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+<property>
+<name>dfs.name.dir</name>
+<value>file:///C:/Hadoop/data/namenode</value>
+</property>
+<property>
+<name>dfs.data.dir</name>
+<value>file:///C:/Hadoop/data/datanode</value>
+</property>
+</configuration>
+
+4.marped-site.xml: 
+
+<configuration>
+<property>
+<name>mapreduce.framework.name</name>
+<value>yarn</value>
+</property>
+</configuration>
+
+5.yarn-site.xml:
+
+<configuration>
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle</value>
+</property>
+<property>
+<name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</na me>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+</configuration>
+
+o According to given image edit the file in notepad using the code given above and follow the sequence of numbers in given above image & edit it. 
+
+6.Correction of bin file:
+o Delete the bin file located in hadoop folder.
+o Install new bin file by using given link and extract it in same hadoop folder:
+  (https://drive.google.com/file/d/1nCN jK7EJF2DmPUUxgOggnvJ6k6tksY z/view)
+
+7.Installation of MSCVR 120 .dll file:
+o Follow the given link and install 64 bit file and after installation extract that folder and copy the mscvr file and     paste it in the system 32 folder in the windows file located in Local Disk C.
+o Then go to mscv 170 file page and download that file. from the following link (use X64 named file): (https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
+
+8. Open cmd prompt and run given commands:
+
+>>hdfs namenode -format 
+press enter
+>>cd \
+press enter
+>>cd Hadoop
+press enter
+>>cd sbin
+press enter
+>>start-dfs.cmd
+press enter
+>>start-yarn.cmd
+press enter
+
+Note:- (After running all these commands given above firstly don’t
+close the command prompt and after running start-dfs.cmd command & start-yarn.cmd command don’t close the pop-ups of command prompt) 
+
+9.Final Step:
+o Run localhost:9870 in the chrome and in case it fails to run then use localhost:50070 for Hadoop Overview.
+o Run localhost:8088 on the chrome for Hadoop Cluster.
