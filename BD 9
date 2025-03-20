@@ -1,0 +1,44 @@
+PRACTICAL 9 - CLASSIFICATION MODEL:
+           a. Install relevant package for classification.
+           b. Choose classifier for classification problem.
+           c. Evaluate the performance of classifier.
+
+
+code:
+
+install.packages("class")
+library(class)
+
+data(iris)
+
+
+set.seed(123) # For reproducibility
+trainIndex <- sample(1:nrow(iris), 0.8 * nrow(iris))
+data_train <- iris[trainIndex, ]
+data_test <- iris[-trainIndex, ]
+
+k <- 5
+
+knn_model <- knn(train = data_train[, -5], test = data_test[, -5], cl = data_train$Species, k
+                 = k)
+
+conf_matrix <- table(Actual = data_test$Species, Predicted = knn_model)
+
+accuracy <- sum(diag(conf_matrix)) / sum(conf_matrix)
+precision <- diag(conf_matrix) / colSums(conf_matrix)
+recall <- diag(conf_matrix) / rowSums(conf_matrix)
+f1_score <- 2 * precision * recall / (precision + recall)
+
+print("Confusion Matrix:")
+print(conf_matrix)
+print(paste("Accuracy:", accuracy))
+print(paste("Precision:", precision))
+print(paste("Recall:", recall))
+print(paste("F1-Score:", f1_score))
+
+
+
+                                                                                                                        PRACTICAL 10 - A - CLUSTERING MODEL
+                                                                                                                                                            A . Clustering algorithms for unsupervised classification.
+
+
