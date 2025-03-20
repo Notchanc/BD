@@ -1,3 +1,5 @@
+PRACTICAL 7 -  Regression Model
+
 Aim:Regression Model: Import a data from web storage. Name the dataset and do Logistic Regression to 
     find out relation between variables that are affecting the admission of a student in an institute based   
     on his or her GRE score, GPA obtained and rank of the student. Also check the model is fit or not require
